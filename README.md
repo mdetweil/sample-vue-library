@@ -1,4 +1,5 @@
-# sample-library
+# sample-vue-library
+## A sample vue library with jest unit tests, and storybook setup
 
 ## Project setup
 ```
@@ -20,15 +21,22 @@ yarn build
 yarn test:unit
 ```
 
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
 ### Lints and fixes files
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Bundle the application as a library
+```
+yarn bundle
+```
+
+### Run the library as a volume mounted container via docker-compose
+```
+yarn compose
+```
+
+### Serve up story book on port 6006
+```
+yarn storybook:serve
+```
