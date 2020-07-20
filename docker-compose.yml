@@ -10,3 +10,12 @@ services:
     volumes:
     - '.:/app'
     command: /bin/sh -c "yarn serve"
+  storybook:
+    build:
+      context: .
+      target: 'develop-stage'
+    ports:
+    - '6006:6006'
+    volumes:
+    - '.:/app'
+    command: /bin/sh -c "yarn storybook:serve"
