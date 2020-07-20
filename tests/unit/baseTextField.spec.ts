@@ -1,16 +1,19 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import BaseTextField from '@/components/_base-Text-Field.vue';
-
-function getMountedComponent(Component: any, propsData: any) {
-  return shallowMount(Component, {
-    propsData
-  })
-}
+import vuetify from "vuetify";
 
 describe('BaseTextField.vue', () => {
-  it('renders label when passed', () => {
-    const wrapper = getMountedComponent(BaseTextField, { label: "Hello"});
-    console.log(wrapper.vm.$data)
-    expect(wrapper.vm.$data.rulesFlag).toBe([]);
+  let wrapper: any;
+  beforeEach( () => {
+    const localVue = createLocalVue();
+    localVue.use(vuetify);
+
+    wrapper = shallowMount(BaseTextField, {
+      localVue
+    })
+  })
+  
+  it('returns a vue instancee', () => {
+    expect(wrapper.isVueInstance()).toBe(true);
   })
 })
